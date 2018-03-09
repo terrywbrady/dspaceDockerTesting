@@ -28,7 +28,13 @@ _If you already have a local copy of Maven, run this on your desktop instead_
 
     docker volume create M2
 
+#### Windows Flavor
+
     docker run -it -v M2:/home/user/.m2 -v ${PWD}:/opt/maven -w /opt/maven maven mvn clean install
+
+#### MacOS Flavor
+
+    docker run -it -v M2:/home/user/.m2 -v "$(pwd)":/opt/maven -w /opt/maven maven mvn clean install
 
 ## Create DSpace Database
 _This volume will persist you database data even if you stop the database server_
@@ -50,7 +56,14 @@ _This volume will persist the DSpace assetstore and solr content between runs_
 
 _Deploy/install DSpace_
 
+#### Windows Flavor
+
     docker run -it --rm --network dspacenet -v ${PWD}/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer terrywbrady/dspace-docker-ant ant update clean_backups
+
+#### MacOS Flavor
+
+    docker run -it --rm --network dspacenet -v "$(pwd)"/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer terrywbrady/dspace-docker-ant ant update clean_backups
+
 
 _Start tomcat: for speed, only xmlui and solr are currently started_
 
