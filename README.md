@@ -5,7 +5,9 @@
     git config --global core.autocrlf false
     git config --global core.eol lf
 
-### DSpace Branch: dspace-6_x
+### DSpace Branch:
+- dspace-6_x
+- master
 
 ### Create local.cfg for the Docker image in the DSpace root directory
 _This file is already in the .gitignore file, it is intended to be localized_
@@ -74,11 +76,12 @@ _This volume will persist the DSpace assetstore and solr content between runs_
 
 ### Start tomcat (All Webapps Enabled)
 
-    docker run -it --network dspacenet -v dspaceD6:/dspace -p 8080:8080 --name dspacetomcat terrywbrady/dspacetomcatall
+    docker run -it --network dspacenet -v dspaceD6:/dspace -p 8080:8080 --name dspacetomcatall terrywbrady/dspacetomcatall
 
 #### Attach to tomcat directly to run dspace commands (/dspace/bin/dspace)
 
     docker exec -it --detach-keys "ctrl-p" dspacetomcatall /bin/bash
 
 ## Open in a Browser
-http://localhost:8080/xmlui
+- DSpace 6: http://localhost:8080/xmlui
+- DSpace 7: http://localhost:8080/spring-rest
