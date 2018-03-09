@@ -26,17 +26,14 @@ _This file is already in the .gitignore file, it is intended to be localized_
     docker network create dspacenet
 
 ## Build DSpace
-_If you already have a local copy of Maven, run this on your desktop instead_
-
-    docker volume create M2
 
 #### Windows Flavor
 
-    docker run -it -v M2:/home/user/.m2 -v ${PWD}:/opt/maven -w /opt/maven maven mvn clean install
+    docker run -it --rm -v ${HOME}/.m2:/home/user/.m2 -v ${PWD}:/opt/maven -w /opt/maven maven mvn clean install
 
 #### MacOS Flavor
 
-    docker run -it -v M2:/home/user/.m2 -v "$(pwd)":/opt/maven -w /opt/maven maven mvn clean install
+    docker run -it --rm -v "$(home)":/home/user/.m2 -v "$(pwd)":/opt/maven -w /opt/maven maven mvn clean install
 
 ## Create DSpace Database
 _This volume will persist you database data even if you stop the database server_
