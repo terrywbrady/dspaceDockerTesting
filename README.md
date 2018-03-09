@@ -54,7 +54,7 @@ _This volume will persist the DSpace assetstore and solr content between runs_
 
     docker volume create dspaceD6
 
-_Deploy/install DSpace_
+### Deploy/install DSpace_
 
 #### Windows Flavor
 
@@ -64,14 +64,21 @@ _Deploy/install DSpace_
 
     docker run -it --rm --network dspacenet -v "$(pwd)"/dspace/target/dspace-installer:/installer -v dspaceD6:/dspace -w /installer terrywbrady/dspace-docker-ant ant update clean_backups
 
-
-_Start tomcat: for speed, only xmlui and solr are currently started_
+### Start tomcat (XMLUI and SOLR Only)
 
     docker run -it --network dspacenet -v dspaceD6:/dspace -p 8080:8080 --name dspacetomcat terrywbrady/dspacetomcat
 
-_Attach to tomcat directly to run dspace commands (/dspace/bin/dspace)_
+#### Attach to tomcat directly to run dspace commands (/dspace/bin/dspace)
 
     docker exec -it --detach-keys "ctrl-p" dspacetomcat /bin/bash
+
+### Start tomcat (All Webapps Enabled)
+
+    docker run -it --network dspacenet -v dspaceD6:/dspace -p 8080:8080 --name dspacetomcat terrywbrady/dspacetomcatall
+
+#### Attach to tomcat directly to run dspace commands (/dspace/bin/dspace)
+
+    docker exec -it --detach-keys "ctrl-p" dspacetomcatall /bin/bash
 
 ## Open in a Browser
 http://localhost:8080/xmlui
