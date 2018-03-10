@@ -29,11 +29,11 @@ _This file is already in the .gitignore file, it is intended to be localized_
 
 #### Windows Flavor
 
-    docker run -it --rm -v ${HOME}/.m2:/home/user/.m2 -v ${PWD}:/opt/maven -w /opt/maven maven mvn clean install
+    docker run -it --rm -v ${HOME}/.m2:/root/.m2 -v ${PWD}:/opt/maven -w /opt/maven maven mvn clean install
 
 #### MacOS Flavor
 
-    docker run -it --rm -v "$(home)":/home/user/.m2 -v "$(pwd)":/opt/maven -w /opt/maven maven mvn clean install
+    docker run -it --rm -v "$(home)":/root/.m2 -v "$(pwd)":/opt/maven -w /opt/maven maven mvn clean install
 
 ## Create DSpace Database
 _This volume will persist you database data even if you stop the database server_
@@ -82,3 +82,8 @@ _This volume will persist the DSpace assetstore and solr content between runs_
 ## Open in a Browser
 - DSpace 6: http://localhost:8080/xmlui
 - DSpace 7: http://localhost:8080/spring-rest
+
+## Using the docker-compose.yml file
+_This is not yet working -- under development_
+
+    docker-compose up -d

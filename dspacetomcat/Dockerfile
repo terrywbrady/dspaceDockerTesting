@@ -1,7 +1,5 @@
 FROM tomcat:8
 
-VOLUME dspaceD6
-
 ENV JAVA_OPTS=-Xmx2000m
 COPY tomcat-users.xml /usr/local/tomcat/conf
 COPY manager-context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml

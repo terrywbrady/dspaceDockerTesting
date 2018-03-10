@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  dspacedbhost:
+    image: terrywbrady/dspacedb
+    ports:
+      - 5432:5432
+    volumes:
+       - pgdataD6:/var/lib/postgresql/data
+    networks:
+      - dspacenet
+    tty: true
+    stdin_open: true
+
+  dspacetomcat:
+    image: terrywbrady/dspacetomcat
+    ports:
+      - 8080:8080
+    volumes:
+       - dspaceD6:/dspace
+    networks:
+       - dspacenet
+    depends_on:
+      - dspacedbhost
+    tty: true
+    stdin_open: true
+
+volumes:
+  pgdataD6:
+  dspaceD6:
+
+networks:
+  dspacenet:
