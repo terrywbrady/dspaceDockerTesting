@@ -14,6 +14,8 @@ EXPOSE 8182
 
 RUN unzip -d /home/user /tmp/jetty.zip
 RUN ln -s /home/user/jetty-distribution-${JETTY_VER} /home/user/jetty
+RUN mkdir /home/user/jetty/webapps/html
+COPY index.html /home/user/jetty/webapps/html
 RUN mkdir /home/user/jetty/webapps/manifests
 RUN unzip -d /home/user/jetty/webapps /tmp/uv.zip
 
