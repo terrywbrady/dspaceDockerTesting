@@ -7,7 +7,7 @@ echo "CANT:  ${CANT}"
 echo "JETTY: ${JETTY}"
 
 P=/projects/File-Analyzer-Test-Data/iiif/dog-photos/
-S1="s%https://YOUR-IMAGE-SERVER-URL/project-path%http://${CANT}/dog-photos%g"
+S1="s%https://YOUR-IMAGE-SERVER-URL/project-path%http://${CANT}/iiif/2/dog-photos%g"
 S2="s%# ManifestRoot: https://YOUR-IMAGE-SERVER-URL/manifest-path%ManifestRoot: http://${JETTY}/manifests%g"
 S3="s%//YOUR-SERVER-PATH/IIIF/manifests%/home/user/jetty/webapps/manifests%g"
 
