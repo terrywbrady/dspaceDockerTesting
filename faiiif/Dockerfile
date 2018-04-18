@@ -18,8 +18,9 @@ RUN mkdir /home/user/jetty/webapps/html
 COPY index.html /home/user/jetty/webapps/html
 RUN mkdir /home/user/jetty/webapps/manifests
 RUN unzip -d /home/user/jetty/webapps /tmp/uv.zip
+RUN ln -s uv-dist-custom-1.0 uv
 
 EXPOSE 8080
 
-COPY makeprop.sh /home/user/makeprop.sh
+COPY --chown=1000 makeprop.sh /home/user/makeprop.sh
 RUN chmod 755 /home/user/makeprop.sh
