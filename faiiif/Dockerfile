@@ -18,7 +18,7 @@ RUN mkdir /home/user/jetty/webapps/html
 COPY index.html /home/user/jetty/webapps/html
 RUN mkdir /home/user/jetty/webapps/manifests
 RUN unzip -d /home/user/jetty/webapps /tmp/uv.zip
-RUN ln -s /home/user/jetty/webapps/uv-dist-custom-1.0 /home/user/jetty/webapps/uv
+RUN mv /home/user/jetty/webapps/uv-dist-custom-1.0 /home/user/jetty/webapps/uv
 
 EXPOSE 8080
 
