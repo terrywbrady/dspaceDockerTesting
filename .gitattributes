@@ -1,3 +1,3 @@
 * text eol=lf
 *.sh eol=lf
-Doverfile eol=lf
+Dockerfile eol=lf
